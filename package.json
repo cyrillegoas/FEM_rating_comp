@@ -1,0 +1,14 @@
+{
+  "name": "rating-comp",
+  "private": true,
+  "version": "0.0.0",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "sass": "^1.49.10",
+    "vite": "^2.9.0"
+  }
+}
