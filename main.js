@@ -15,29 +15,26 @@ function RatingModal(params) {
 RatingModal.prototype.askRating = function (element) {
   const html = `
     <dialog class="rating">
-      <img src="./assets/icon-star.svg">
-      <h1>How did we do?</h1>
-      <p>Please let us know how we did with your support request. All feedback is appreciated to help us improve our offering!</p>
-      <div class="rating__stars">
-      <ul>
-        <li class="rating__star>
-          <img src="./assets/icon-star.svg">
-        </li>
-        <li class="rating__star>
-          <img src="./assets/icon-star.svg">
-        </li>
-        <li class="rating__star>
-          <img src="./assets/icon-star.svg">
-        </li>
-        <li class="rating__star>
-          <img src="./assets/icon-star.svg">
-        </li>
-        <li class="rating__star>
-          <img src="./assets/icon-star.svg">
-        </li>
-      </ul>
+      <div class="rating__wrapper">
+        <div class="rating__star-wrapper">
+          <img class="rating__star" src="./assets/icon-star.svg">
+        </div>
+        <h1 class="rating__title">How did we do?</h1>
+        <p class="rating__desc">Please let us know how we did with your support request. All feedback is appreciated to help us improve our offering!</p>
+        <form class="rating__score-wrapper">
+          <input type="radio" value="1" name="rating" id="score1">
+          <label for="score1" class="rating__score">1</label>
+          <input type="radio" value="2" name="rating" id="score2">
+          <label for="score2" class="rating__score">2</label>
+          <input type="radio" value="3" name="rating" id="score3">
+          <label for="score3" class="rating__score">3</label>
+          <input type="radio" value="4" name="rating" id="score4">
+          <label for="score4" class="rating__score">4</label>
+          <input type="radio" value="5" name="rating" id="score5">
+          <label for="score5" class="rating__score">5</label>
+          <button class="btn">SUBMIT</button>
+        </form>
       </div>
-      <button class="btn">SUBMIT</button>
     </dialog>
   `;
   element.insertAdjacentHTML('beforeend', html);

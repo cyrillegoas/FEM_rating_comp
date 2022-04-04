@@ -5,12 +5,14 @@ $primary: hsl(25, 97%, 53%);
 $White: hsl(0, 0%, 100%);
 $Light-Grey: hsl(217, 12%, 63%);
 $Medium-Grey: hsl(216, 12%, 54%);
-$Dark-Blue: hsl(213, 19%, 18%);
-$Very-Dark-Blue: hsl(216, 12%, 8%);
-$font-Overpass: Overpass, sans-serif;
+$gradient-top: #232A34;
+$gradient-bot: #181E27;
+$Dark-Blue: #252d37;
+$Very-Dark-Blue: #121417;
+$font: Overpass, sans-serif;
 
 :root {
-  font-family: $font-Overpass;
+  font-family: $font;
   font-size: 10px;
 }
 
@@ -20,19 +22,107 @@ body {
   place-content: center center;
 }
 
+ul,li{
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
 .btn {
-  font-size: 2rem;
+  font-size: 1.5rem;
   background-color: $primary;
   color: $White;
   border: 0;
-  padding: 2rem;
+  padding: 1.1rem 2rem;
   border-radius: 500px;
+  cursor: pointer;
 
   &:hover {
     background-color: lighten($primary, $amount: 10%);
   }
   &:active {
-    background-color: lighten($primary, $amount: 20%);
-    box-shadow: inset 2px 2px 4px hsla(0, 0%, 0%, 0.4);
+    background-color: $White;
+    color: $primary;
   }
+}
+
+.rating{
+  background: linear-gradient(to bottom,$gradient-top,$gradient-bot);
+  border: 0;
+  border-radius: 30px;
+  padding: 3.2rem;
+  color: $White;
+
+  &__wrapper{
+    max-width: 34rem;
+  }
+
+  &__star{
+    width: 1.6rem;
+
+    &-wrapper{
+      padding: 1.6rem;
+      border-radius: 50%;
+      background-color: #262E38;
+      width: fit-content;
+      margin-bottom: 3rem;
+    }
+  }
+
+  &__title{
+    font-size: 2.8rem;
+    line-height: 1.25;
+    margin-bottom: 1.5rem;
+  }
+
+  &__desc{
+    color: $Light-Grey;
+    line-height: 1.6;
+    font-size: 1.5rem;
+    margin-bottom: 2.4rem;
+  }
+  
+  &__score{
+    line-height: 5.1rem;
+    border-radius: 50%;
+    background-color: #262E38;
+    width: 5.1rem;
+    text-align: center;
+    cursor: pointer;
+    color: $Medium-Grey;
+    font-size: 1.6rem;
+    
+    &:hover{
+      color: $White;
+      background-color: $Medium-Grey;
+    }
+
+    &-wrapper{
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      row-gap: 3.2rem;
+
+      & input{
+        position: absolute;
+        opacity: 0;
+        cursor: pointer;
+        height: 0;
+        width: 0;
+
+        &:checked + label{
+          color: $White;
+          background-color: $primary;
+        }
+      }
+    }
+  }
+
+  & .btn{
+    flex-basis: 100%;
+  }
+}
+
+dialog::backdrop{
+  background: hsla(0,0%,100%, 10%);
 }
